@@ -4,8 +4,9 @@ class Header extends Component {
   render() {
     return (
       <header id="header">
-        <img src="images/logo.png" />
-        <h1 className="title">CIE Editor</h1>
+        <img src="images/logo.svg" />
+        <h1 className="title">Ghost Me</h1>
+        <h3>An App to create Ghost CIEs</h3>
       </header>
     );
   }
