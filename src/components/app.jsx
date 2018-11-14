@@ -95,7 +95,7 @@ class App extends Component {
       const cie = [
         employerName,
         eventId,
-        eventName,
+        '"' + eventName + '"',
         '',
         'IncentivePoints',
         pointsAwarded.replace(',', ''),
