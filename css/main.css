@@ -17,3 +17,7 @@ body {
   text-align: center;
   margin: 1em 0;
 }
+
+#psk {
+  display: none;
+}

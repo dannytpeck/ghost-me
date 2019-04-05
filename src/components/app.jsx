@@ -194,27 +194,19 @@ class App extends Component {
       <div id="app">
         <Header />
 
-        <div className="row">
-          <div className="col">
-            <div className="form-group">
-              <label htmlFor="employerName">EmployerName</label>
-              <select id="employerName" className="form-control custom-select" onChange={this.fetchPsk} disabled={this.state.hasLoaded}>
-                <option defaultValue>Select Employer</option>
-                {this.renderEmployerNames()}
-              </select>
-            </div>
-          </div>
-          <div className="col">
-            <div className="form-group">
-              <label htmlFor="psk">PSK</label>
-              <input type="text" className="form-control" id="psk" placeholder="ABCD-1234-ABCD-1234" />
-            </div>
-          </div>
-        </div>
+        { /* Hidden input that holds the PSK */ }
+        <input type="text" className="form-control" id="psk" />
 
         <div className="row">
           <div className="col">
             <form id="form">
+              <div className="form-group">
+                <label htmlFor="employerName">EmployerName</label>
+                <select id="employerName" className="form-control custom-select" onChange={this.fetchPsk} disabled={this.state.hasLoaded}>
+                  <option defaultValue>Select Employer</option>
+                  {this.renderEmployerNames()}
+                </select>
+              </div>
               <div className="form-group">
                 <label htmlFor="eventName">Event Name</label>
                 <input type="text" className="form-control" id="eventName" placeholder="Participate in an Event" value={this.state.eventName} onChange={(e) => this.setEventName(e)} />
