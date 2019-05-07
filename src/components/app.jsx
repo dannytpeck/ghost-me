@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header';
-import Footer from './footer';
+import Warning from './warning';
 import UploadModal from './upload_modal';
 
 /* global $ */
@@ -223,6 +223,9 @@ class App extends Component {
                 <label htmlFor="maxOccurrences">Max Occurrences</label>
                 <input type="text" className="form-control" id="maxOccurrences" placeholder="1" value={this.state.maxOccurrences} onChange={(e) => this.setMaxOccurrences(e)} />
               </div>
+
+              <Warning />
+
               <div className="form-group">
                 <button type="submit" className="btn btn-primary" onClick={this.submitData}>Create/Update CIE</button>
               </div>
@@ -232,8 +235,6 @@ class App extends Component {
 
           </div>
         </div>
-
-        <Footer />
 
       </div>
     );
