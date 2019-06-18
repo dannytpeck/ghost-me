@@ -13,8 +13,8 @@ class App extends Component {
       clients: [],
       eventId: '',
       eventName: '',
-      pointsAwarded: '',
-      maxOccurrences: ''
+      pointsAwarded: '0',
+      maxOccurrences: '1'
     };
 
     this.submitData = this.submitData.bind(this);
@@ -208,20 +208,20 @@ class App extends Component {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="eventName">Event Name</label>
-                <input type="text" className="form-control" id="eventName" placeholder="Participate in an Event" value={this.state.eventName} onChange={(e) => this.setEventName(e)} />
+                <label htmlFor="eventName">Event Name (e.g., Participate in an Event)</label>
+                <input type="text" className="form-control" id="eventName" value={this.state.eventName} onChange={(e) => this.setEventName(e)} />
               </div>
               <div className="form-group">
-                <label htmlFor="eventId">Event ID</label>
-                <input type="text" className="form-control" id="eventId" placeholder="9100" value={this.state.eventId} onChange={(e) => this.setEventId(e)} />
+                <label htmlFor="eventId">Event ID (e.g., 9100)</label>
+                <input type="text" className="form-control" id="eventId" value={this.state.eventId} onChange={(e) => this.setEventId(e)} />
               </div>
               <div className="form-group">
                 <label htmlFor="pointsAwarded">Points Awarded</label>
-                <input type="text" className="form-control" id="pointsAwarded" placeholder="0" value={this.state.pointsAwarded} onChange={(e) => this.setPointsAwarded(e)} />
+                <input type="text" className="form-control" id="pointsAwarded" value={this.state.pointsAwarded} onChange={(e) => this.setPointsAwarded(e)} />
               </div>
               <div className="form-group">
                 <label htmlFor="maxOccurrences">Max Occurrences</label>
-                <input type="text" className="form-control" id="maxOccurrences" placeholder="1" value={this.state.maxOccurrences} onChange={(e) => this.setMaxOccurrences(e)} />
+                <input type="text" className="form-control" id="maxOccurrences" value={this.state.maxOccurrences} onChange={(e) => this.setMaxOccurrences(e)} />
               </div>
 
               <Warning />
