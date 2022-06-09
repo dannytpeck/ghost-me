@@ -3,8 +3,6 @@ import Header from './header';
 import Warning from './warning';
 import UploadModal from './upload_modal';
 
-/* global $ */
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,11 +20,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    $.getJSON('https://api.airtable.com/v0/appHXXoVD1tn9QATh/Clients?api_key=keyCxnlep0bgotSrX&view=sorted').done(data => {
+    $.getJSON('https://api.airtable.com/v0/appRmmE1MtVXv909Q/Clients?api_key=keyu0csMc26J0N4Tr&view=sorted').done(data => {
       let records = data.records;
 
       if (data.offset) {
-        $.getJSON(`https://api.airtable.com/v0/appHXXoVD1tn9QATh/Clients?api_key=keyCxnlep0bgotSrX&view=sorted&offset=${data.offset}`).done(data => {
+        $.getJSON(`https://api.airtable.com/v0/appRmmE1MtVXv909Q/Clients?api_key=keyu0csMc26J0N4Tr&view=sorted&offset=${data.offset}`).done(data => {
           this.setState({
             clients: [...records, ...data.records]
           });
@@ -134,8 +132,7 @@ class App extends Component {
     // Upload CSV to Limeade
     function uploadToLimeade(csv) {
       const headers = csv[0].join(',');
-      const url = 'https://calendarbuilder.dev.adurolife.com/limeade-upload/';
-      // const url = 'http://mywellnessnumbers.sftp.adurolife.com/limeade-upload/';
+      const url = '#'; // Replace in PROD with upload URL
 
       const oneIncentiveEvent = csv[1].join(',');
 
@@ -150,7 +147,7 @@ class App extends Component {
       $('#uploadModal').modal('show');
       $('#uploadModalBody').html('<p>Uploading...</p>');
 
-      $.post(url, params).done(function(response) {
+      $.post(url, params).done(function (response) {
         $('#uploadModalBody').append(`<p>${response}</p>`);
         console.log(response);
       });
@@ -169,7 +166,7 @@ class App extends Component {
 
   renderEmployerNames() {
     return this.state.clients.map((client) => {
-      return <option key={client.id}>{client.fields['Limeade e=']}</option>;
+      return <option key={client.id}>{client.fields['Account Name']}</option>;
     });
   }
 
@@ -194,7 +191,6 @@ class App extends Component {
       <div id="app">
         <Header />
 
-        { /* Hidden input that holds the PSK */ }
         <input type="text" className="form-control" id="psk" />
 
         <div className="row">
